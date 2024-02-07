@@ -65,12 +65,6 @@ class _HomeState extends State<Home> {
           case HomeLoadedSuccessState:
             final successState = state as HomeLoadedSuccessState;
             return Scaffold(
-              appBar: AppBar(
-                backgroundColor: Color.fromARGB(255, 7, 25, 40),
-                title: const Center(
-                    child: Text(
-                        '                 Home \n page list of Department')),
-              ),
               floatingActionButton: FloatingActionButton(
                   onPressed: () {
                     homeBlocBloc.add(HomeAddButtonNavigateEvent());
@@ -162,8 +156,8 @@ class _HomeState extends State<Home> {
                           ExpansionPanel(
                             headerBuilder:
                                 (BuildContext context, bool isExpanded) {
-                              return ListTile(
-                                title: const Text('Tester'),
+                              return const ListTile(
+                                title: Text('Tester'),
                               );
                             },
                             body: Column(

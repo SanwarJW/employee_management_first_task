@@ -1,4 +1,4 @@
-import 'package:employee_management_first_task/presentationLayer/home/ui/home.dart';
+import 'package:employee_management_first_task/presentationLayer/home_menu/ui/home_menu.dart';
 import 'package:employee_management_first_task/presentationLayer/login/bloc/login_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const Home(),
+        home: const HomeMenu(),
       ),
     );
   }
