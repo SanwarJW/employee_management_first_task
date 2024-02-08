@@ -18,6 +18,7 @@ class _MenuPageState extends State<MenuPage> {
   Widget build(BuildContext context) {
     return BlocConsumer<MenuBloc, MenuState>(
       bloc: _menuBloc,
+      // ignore: unnecessary_type_check
       buildWhen: (previous, current) => current is MenuState,
       listener: (context, state) {
         // TODO: implement listener

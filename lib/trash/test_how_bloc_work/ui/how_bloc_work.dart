@@ -16,7 +16,9 @@ class _HowBlocWorkState extends State<HowBlocWork> {
   Widget build(BuildContext context) {
     return BlocConsumer<HowBlocWorkBloc, HowBlocWorkState>(
       bloc: _howBlocWorkBloc,
+      // ignore: unnecessary_type_check
       listenWhen: (previous, current) => current is! HowBlocWorkState,
+      // ignore: unnecessary_type_check
       buildWhen: (previous, current) => current is HowBlocWorkState,
       listener: (context, state) {
         // TODO: implement listener
