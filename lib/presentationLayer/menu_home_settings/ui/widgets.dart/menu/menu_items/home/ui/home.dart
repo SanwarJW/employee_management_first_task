@@ -1,7 +1,7 @@
 import 'package:employee_management_first_task/businessLogicLayer/services/emp_department_services.dart';
 import 'package:employee_management_first_task/presentationLayer/add/ui/add.dart';
-import 'package:employee_management_first_task/presentationLayer/home/bloc/home_bloc_bloc.dart';
-import 'package:employee_management_first_task/presentationLayer/home/ui/emp_tile_widget.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/home/bloc/home_bloc_bloc.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/home/ui/emp_tile_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
@@ -65,12 +65,6 @@ class _HomeState extends State<Home> {
           case HomeLoadedSuccessState:
             final successState = state as HomeLoadedSuccessState;
             return Scaffold(
-              appBar: AppBar(
-                backgroundColor: Color.fromARGB(255, 7, 25, 40),
-                title: const Center(
-                    child: Text(
-                        '                 Home \n page list of Department')),
-              ),
               floatingActionButton: FloatingActionButton(
                   onPressed: () {
                     homeBlocBloc.add(HomeAddButtonNavigateEvent());

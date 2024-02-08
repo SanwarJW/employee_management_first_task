@@ -24,7 +24,7 @@ class HomeBlocBloc extends Bloc<HomeBlocEvent, HomeBlocState> {
     Map<String, List<Employee>> departmentMap =
         await empService.filterEmployeesByDepartment();
     emit(HomeLoadingState());
-    await Future.delayed(const Duration(seconds: 3));
+    // await Future.delayed(const Duration(seconds: 3));
     emit(HomeLoadedSuccessState(
         developerList: departmentMap['developers']!,
         testerList: departmentMap['testers']!

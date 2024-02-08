@@ -1,5 +1,5 @@
 import 'package:employee_management_first_task/presentationLayer/login/bloc/login_bloc.dart';
-import 'package:employee_management_first_task/trash/test_how_bloc_work/ui/how_bloc_work.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/menu_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HowBlocWork(),
+        home: const MenuPage(),
       ),
     );
   }
