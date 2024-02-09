@@ -22,7 +22,7 @@ class _HomeWithTopMenuState extends State<HomeWithTopMenu> {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('TabBar Sample'),
+          title: const Text('E M P L O Y E E    L I S T'),
           bottom: const TabBar(
             tabs: <Widget>[
               // Tab(

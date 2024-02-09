@@ -53,7 +53,7 @@ class _BottomNavigationBarExampleState
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('BottomNavigationBar Sample'),
+        title: const Text('E M P L O Y E E    L I S T'),
       ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
