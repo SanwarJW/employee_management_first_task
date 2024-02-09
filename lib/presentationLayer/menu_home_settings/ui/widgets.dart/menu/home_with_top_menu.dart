@@ -1,11 +1,13 @@
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/bloc/menu_bloc.dart';
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/home/ui/home.dart';
-import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/settings.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 class HomeWithTopMenu extends StatefulWidget {
+  final String dropdownValueInitial;
   final MenuBloc menuBloc;
-  const HomeWithTopMenu({super.key, required this.menuBloc});
+  const HomeWithTopMenu(
+      {super.key, required this.menuBloc, required this.dropdownValueInitial});
 
   @override
   State<HomeWithTopMenu> createState() => _HomeWithTopMenuState();
@@ -16,7 +18,7 @@ class _HomeWithTopMenuState extends State<HomeWithTopMenu> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: DefaultTabController(
-      initialIndex: 1,
+      initialIndex: 0,
       length: 2,
       child: Scaffold(
         appBar: AppBar(
@@ -41,7 +43,9 @@ class _HomeWithTopMenuState extends State<HomeWithTopMenu> {
             //   child: Text("It's cloudy here"),
             // ),
             const Home(),
-            Settings(menuBloc: widget.menuBloc),
+            Settings(
+                menuBloc: widget.menuBloc,
+                dropdownValueInitial: widget.dropdownValueInitial),
           ],
         ),
       ),

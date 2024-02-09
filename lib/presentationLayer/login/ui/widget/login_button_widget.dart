@@ -21,9 +21,9 @@ class LoginButton extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                           builder: (context) => const MenuPage()));
-                  if (formKey.currentState!.validate()) {
-                    context.read<LoginBloc>().add(LoginSubmitted());
-                  }
+                  // if (formKey.currentState!.validate()) {
+                  //   context.read<LoginBloc>().add(LoginSubmitted());
+                  // }
                 },
                 child: const Text('Login'),
               );

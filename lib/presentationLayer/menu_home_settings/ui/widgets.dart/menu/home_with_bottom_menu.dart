@@ -1,21 +1,26 @@
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/bloc/menu_bloc.dart';
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/home/ui/home.dart';
-import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/settings.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/settings/settings.dart';
 import 'package:flutter/material.dart';
 
 class HomeBottomBar extends StatelessWidget {
+  final String dropdownValueInitial;
   final MenuBloc menuBloc;
-  const HomeBottomBar({super.key, required this.menuBloc});
+  const HomeBottomBar(
+      {super.key, required this.menuBloc, required this.dropdownValueInitial});
 
   @override
   Widget build(BuildContext context) {
-    return BottomNavigationBarExample(menuBloc: menuBloc);
+    return BottomNavigationBarExample(
+        menuBloc: menuBloc, dropdownValueInitial: dropdownValueInitial);
   }
 }
 
 class BottomNavigationBarExample extends StatefulWidget {
+  final String dropdownValueInitial;
   final MenuBloc menuBloc;
-  const BottomNavigationBarExample({super.key, required this.menuBloc});
+  const BottomNavigationBarExample(
+      {super.key, required this.menuBloc, required this.dropdownValueInitial});
 
   @override
   State<BottomNavigationBarExample> createState() =>
@@ -32,7 +37,9 @@ class _BottomNavigationBarExampleState
     super.initState();
     _widgetOptions = <Widget>[
       const Home(),
-      Settings(menuBloc: widget.menuBloc),
+      Settings(
+          menuBloc: widget.menuBloc,
+          dropdownValueInitial: widget.dropdownValueInitial),
     ];
   }
 

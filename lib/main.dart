@@ -3,7 +3,7 @@ import 'package:employee_management_first_task/presentationLayer/login/ui/login.
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-void main() {
+Future<void> main() async {
   runApp(const MyApp());
 }
 

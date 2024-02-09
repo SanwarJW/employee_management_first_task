@@ -11,19 +11,11 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Color.fromARGB(255, 172, 224, 241),
-      body: Center(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 30),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              // Image.asset("assets/images/cat.png"),
-              FormWidget(),
-            ],
-          ),
-        ),
+      body: Container(
+        height: MediaQuery.of(context).size.height,
+        child: FormWidget(),
       ),
     );
   }

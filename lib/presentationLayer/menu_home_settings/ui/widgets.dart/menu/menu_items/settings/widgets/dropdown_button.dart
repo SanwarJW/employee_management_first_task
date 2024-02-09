@@ -1,36 +1,30 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/bloc/menu_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-const List<String> list = <String>['Top', 'bottom'];
-
-class Settings extends StatelessWidget {
+class MenuDropdownButton extends StatefulWidget {
+  final String dropdownValueInitial;
   final MenuBloc menuBloc;
-  const Settings({super.key, required this.menuBloc});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: DropdownButtonExample(menuBloc: menuBloc),
-      ),
-    );
-  }
-}
-
-class DropdownButtonExample extends StatefulWidget {
-  final MenuBloc menuBloc;
-  const DropdownButtonExample({
+  const MenuDropdownButton({
     Key? key,
     required this.menuBloc,
+    required this.dropdownValueInitial,
   }) : super(key: key);
 
   @override
-  State<DropdownButtonExample> createState() => _DropdownButtonExampleState();
+  State<MenuDropdownButton> createState() => _MenuDropdownButtonState();
 }
 
-class _DropdownButtonExampleState extends State<DropdownButtonExample> {
-  String dropdownValue = list.first;
+const List<String> list = <String>['top', 'bottom'];
+
+class _MenuDropdownButtonState extends State<MenuDropdownButton> {
+  String dropdownValue = '';
+
+  @override
+  void initState() {
+    super.initState();
+    dropdownValue = widget.dropdownValueInitial;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,13 +37,14 @@ class _DropdownButtonExampleState extends State<DropdownButtonExample> {
         height: 2,
         color: Colors.deepPurpleAccent,
       ),
-      onChanged: (String? value) {
-        if (value == 'Top') {
+      onChanged: (String? value) async {
+        final SharedPreferences prefs = await SharedPreferences.getInstance();
+        if (value == 'top') {
           widget.menuBloc.add(MenuChangeMenuTopBottomEvent(menu: 'top'));
-          print('top');
+          await prefs.setString('menu', 'top');
         } else if (value == 'bottom') {
           widget.menuBloc.add(MenuChangeMenuTopBottomEvent(menu: 'bottom'));
-          print('bottom');
+          await prefs.setString('menu', 'bottom');
         }
 
         setState(() {

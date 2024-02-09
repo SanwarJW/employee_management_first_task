@@ -88,7 +88,9 @@ class _HomeState extends State<Home> {
                   // ),
 
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxHeight: 300),
+                    constraints: BoxConstraints(
+                      maxHeight: (MediaQuery.of(context).size.height) * 0.4,
+                    ),
                     child: SingleChildScrollView(
                       child: ExpansionPanelList(
                         expansionCallback: (int index, bool isExpanded) {
@@ -139,7 +141,11 @@ class _HomeState extends State<Home> {
                   // ),
 
                   ConstrainedBox(
-                    constraints: const BoxConstraints(maxHeight: 300),
+                    //70% of the screen height
+
+                    constraints: BoxConstraints(
+                      maxHeight: (MediaQuery.of(context).size.height) * 0.4,
+                    ),
                     child: SingleChildScrollView(
                       child: ExpansionPanelList(
                         expansionCallback: (int index, bool isExpanded) {

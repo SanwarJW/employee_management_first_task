@@ -3,6 +3,7 @@ import 'package:employee_management_first_task/presentationLayer/menu_home_setti
 import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/widgets.dart/menu/home_with_top_menu.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MenuPage extends StatefulWidget {
   const MenuPage({super.key});
@@ -14,6 +15,19 @@ class MenuPage extends StatefulWidget {
 MenuBloc _menuBloc = MenuBloc();
 
 class _MenuPageState extends State<MenuPage> {
+  @override
+  void initState() {
+    initializeSharedPreferences();
+    super.initState();
+  }
+
+  void initializeSharedPreferences() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final String? menu = prefs.getString('menu');
+    _menuBloc.add(MenuChangeMenuTopBottomEvent(menu: menu ?? 'top'));
+    // Continue your initialization here
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<MenuBloc, MenuState>(
@@ -28,6 +42,7 @@ class _MenuPageState extends State<MenuPage> {
           case MenuTopState:
             {
               return HomeWithTopMenu(
+                dropdownValueInitial: 'top',
                 menuBloc: _menuBloc,
               );
             }
@@ -35,6 +50,7 @@ class _MenuPageState extends State<MenuPage> {
           case MenuBottomState:
             {
               return HomeBottomBar(
+                dropdownValueInitial: 'bottom',
                 menuBloc: _menuBloc,
               );
             }
@@ -48,9 +64,5 @@ class _MenuPageState extends State<MenuPage> {
         }
       },
     );
-  }
-
-  changeMenu(String menu) {
-    _menuBloc.add(MenuChangeMenuTopBottomEvent(menu: menu));
   }
 }
