@@ -31,5 +31,9 @@ class DbConnection {
     String employeeTableSql =
         'CREATE TABLE employee(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT,dateOfBirth DATE, dateOfJoin DATE,department TEXT, FOREIGN KEY (department) REFERENCES employeeDepartment(departments)ON DELETE CASCADE ON UPDATE CASCADE)';
     await database.execute(employeeTableSql);
+
+    String loginTableSql =
+        'CREATE TABLE login(id INTEGER PRIMARY KEY, email TEXT, password TEXT)';
+    await database.execute(loginTableSql);
   }
 }
