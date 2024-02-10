@@ -33,7 +33,7 @@ class DbConnection {
     await database.execute(employeeTableSql);
 
     String loginTableSql =
-        'CREATE TABLE login(id INTEGER PRIMARY KEY, email TEXT, password TEXT,authority TEXT)';
+        'CREATE TABLE =(id INTEGER PRIMARY KEY, email TEXT, password TEXT,authority TEXT)';
     await database.execute(loginTableSql);
   }
 }
