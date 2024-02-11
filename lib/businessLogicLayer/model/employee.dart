@@ -1,7 +1,5 @@
 import 'dart:convert';
 
-import 'package:intl/intl.dart';
-
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 class Employee {
   int? id;
@@ -9,6 +7,8 @@ class Employee {
   String? lastname;
   DateTime? dateOfJoin;
   DateTime? dateOfBirth;
+  DateTime? createdDate;
+  String? createdBy;
   String? department;
   Employee({
     this.id,
@@ -16,6 +16,8 @@ class Employee {
     this.lastname,
     this.dateOfJoin,
     this.dateOfBirth,
+    this.createdDate,
+    this.createdBy,
     this.department,
   });
 
@@ -24,8 +26,10 @@ class Employee {
       'id': id,
       'firstname': firstname,
       'lastname': lastname,
-      'dateOfJoin': DateFormat('yyyy-MM-dd').format(dateOfJoin!),
-      'dateOfBirth': DateFormat('yyyy-MM-dd').format(dateOfBirth!),
+      'dateOfJoin': dateOfJoin?.toIso8601String(),
+      'dateOfBirth': dateOfBirth?.toIso8601String(),
+      'createdDate': createdDate?.toIso8601String(),
+      'createdBy': createdBy,
       'department': department,
     };
   }
@@ -41,6 +45,10 @@ class Employee {
       dateOfBirth: map['dateOfBirth'] != null
           ? DateTime.parse(map['dateOfBirth'] as String)
           : null,
+      createdDate: map['createdDate'] != null
+          ? DateTime.parse(map['createdDate'] as String)
+          : null,
+      createdBy: map['createdBy'] != null ? map['createdBy'] as String : null,
       department:
           map['department'] != null ? map['department'] as String : null,
     );

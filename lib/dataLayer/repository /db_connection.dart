@@ -29,7 +29,7 @@ class DbConnection {
 
     // Create the employee table with a foreign key referencing the employeeDeportment table
     String employeeTableSql =
-        'CREATE TABLE employee(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT,dateOfBirth DATE, dateOfJoin DATE,department TEXT, FOREIGN KEY (department) REFERENCES employeeDepartment(departments)ON DELETE CASCADE ON UPDATE CASCADE)';
+        'CREATE TABLE employee(id INTEGER PRIMARY KEY, firstname TEXT, lastname TEXT,dateOfBirth DATE, dateOfJoin DATE,createdDate DATE,createdBy TEXT,department TEXT, FOREIGN KEY (department) REFERENCES employeeDepartment(departments)ON DELETE CASCADE ON UPDATE CASCADE)';
     await database.execute(employeeTableSql);
 
     String loginTableSql =

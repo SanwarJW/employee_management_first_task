@@ -32,7 +32,7 @@ class _DbTestState extends State<DbTest> {
           ),
           ElevatedButton(
               onPressed: () {
-                // insertDepData();
+                //insertDepData();
                 // readDepData();
                 // deleteDepData();
 
@@ -47,7 +47,7 @@ class _DbTestState extends State<DbTest> {
   }
 
   insertDepData() async {
-    EmpDepartment value = EmpDepartment(id: 3, departments: 'test');
+    EmpDepartment value = EmpDepartment(id: 2, departments: 'TESTER');
     var result = await _departmentServices.saveDeportment(value);
     print(result);
   }
@@ -64,11 +64,12 @@ class _DbTestState extends State<DbTest> {
 
   insertEmpData() async {
     Employee value = Employee(
-        id: 9,
         firstname: 'TESTfirstName',
         lastname: 'TESTlastName',
         dateOfBirth: DateTime.now(),
         dateOfJoin: DateTime(2000, 12, 4),
+        createdDate: DateTime.now(),
+        createdBy: 'sanwarjayswal',
         department: 'TESTER');
     var result = await _empService.saveEmployee(value);
 
