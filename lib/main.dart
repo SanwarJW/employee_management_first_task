@@ -1,7 +1,5 @@
-import 'package:employee_management_first_task/presentationLayer/login/bloc/login_bloc.dart';
-import 'package:employee_management_first_task/trash/trashTest/db_test.dart';
+import 'package:employee_management_first_task/presentationLayer/login_register%20/ui/login_register.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -13,20 +11,13 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(
-      providers: [
-        BlocProvider(
-          create: (context) => LoginBloc(),
-        )
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
-        ),
-        home: const DbTest(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        useMaterial3: true,
       ),
+      home: const LoginRegister(),
     );
   }
 }

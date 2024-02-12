@@ -69,10 +69,11 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/cat.png
+    - assets/images/emp.png
     - assets/Animation.json
     - assets/loading.json
     - assets/cow.json
-
+    - assets/empWal.json
 
   # To add assets to your application, add an assets section, like this:
   # assets:

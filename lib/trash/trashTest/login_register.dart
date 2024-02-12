@@ -49,7 +49,7 @@ class LoginRegisterTest extends StatelessWidget {
     RegisterService loginService = RegisterService();
     var result = await loginService.checkUser('sanwar');
     if (result != null) {
-      print(result!.id);
+      print(result.id);
     } else {
       print('object is null');
     }
