@@ -1,4 +1,4 @@
-import 'package:employee_management_first_task/presentationLayer/login_register%20/ui/login_register.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/menu_page.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginRegister(),
+      home: const MenuPage(),
     );
   }
 }

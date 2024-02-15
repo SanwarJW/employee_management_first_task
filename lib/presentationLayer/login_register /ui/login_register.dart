@@ -3,7 +3,6 @@ import 'package:employee_management_first_task/presentationLayer/login_register%
 import 'package:employee_management_first_task/presentationLayer/login_register%20/ui/widget/register/register.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lottie/lottie.dart';
 
 class LoginRegister extends StatelessWidget {
   const LoginRegister({super.key});
@@ -23,6 +22,8 @@ class LoginRegister extends StatelessWidget {
         ),
         BlocBuilder<LoginRegisterBloc, LoginRegisterState>(
             bloc: loginRegisterBloc,
+            buildWhen: (previous, current) =>
+                current is! LoginRegisterActionState,
             builder: (context, state) {
               switch (state.runtimeType) {
                 case LoginRegisterLoginPageState:
@@ -42,7 +43,8 @@ class LoginRegister extends StatelessWidget {
             left: 0,
             bottom: 0,
             child: SizedBox(
-                height: 150, child: Lottie.asset('assets/empWal.json'))),
+              height: 150, //child: Lottie.asset('assets/empWal.json')
+            )),
       ]),
     );
   }
