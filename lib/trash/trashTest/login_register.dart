@@ -1,4 +1,3 @@
-import 'package:employee_management_first_task/businessLogicLayer/services/register_services.dart';
 import 'package:employee_management_first_task/dataLayer/repository%20/repository.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +16,7 @@ class LoginRegisterTest extends StatelessWidget {
             ElevatedButton(
               onPressed: () {
                 //red();
-                chickUser();
+                // chickUser();
               },
               child: Text('red'),
             ),
@@ -45,13 +44,13 @@ class LoginRegisterTest extends StatelessWidget {
     print(result);
   }
 
-  chickUser() async {
-    RegisterService loginService = RegisterService();
-    var result = await loginService.checkUser('sanwar');
-    if (result != null) {
-      print(result.id);
-    } else {
-      print('object is null');
-    }
-  }
+  // chickUser() async {
+  //   RegisterService loginService = RegisterService();
+  //   var result = await loginService.checkUser('sanwar');
+  //   if (result != null) {
+  //     print(result.id);
+  //   } else {
+  //     print('object is null');
+  //   }
+  // }
 }

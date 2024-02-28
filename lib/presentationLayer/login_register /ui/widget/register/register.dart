@@ -73,19 +73,15 @@ class Register extends StatelessWidget {
                   },
                   child: GestureDetector(
                     onTap: () {
-                      loginRegisterBloc
-                          .add(LoginRegisterRegisterPageSubmitEvent(
-                        email: email,
-                        name: name,
-                        password: password,
-                        conformPassword: conformPassword,
-                        authority: authority,
-                      ));
-                      print('name $name');
-                      print('email $email');
-                      print('password $password');
-                      print('conformPassword $conformPassword');
-                      print('authority $authority');
+                      loginRegisterBloc.add(
+                        LoginRegisterRegisterPageSubmitEvent(
+                          email: email,
+                          name: name,
+                          password: password,
+                          conformPassword: conformPassword,
+                          authority: authority,
+                        ),
+                      );
                     },
                     child: Container(
                       decoration: BoxDecoration(

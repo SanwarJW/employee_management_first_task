@@ -39,3 +39,23 @@ final class LoginRegisterRegisterPageSubmitEvent extends LoginRegisterEvent {
     required this.authority,
   });
 }
+
+final class LoginRegisterLoginSubmitEvent extends LoginRegisterEvent {
+  final String email;
+  final String password;
+
+  LoginRegisterLoginSubmitEvent({
+    required this.email,
+    required this.password,
+  });
+}
+
+final class LoginRegisterLoginEvent extends LoginRegisterEvent {
+  final String emailMassage;
+  final String passwordMassage;
+
+  LoginRegisterLoginEvent({
+    required this.emailMassage,
+    required this.passwordMassage,
+  });
+}

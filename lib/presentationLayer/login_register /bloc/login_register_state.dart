@@ -1,8 +1,8 @@
 part of 'login_register_bloc.dart';
 
-sealed class LoginRegisterState {}
+final class LoginRegisterState {}
 
-sealed class LoginRegisterActionState extends LoginRegisterState {}
+final class LoginRegisterActionState extends LoginRegisterState {}
 
 final class LoginRegisterLoginPageState extends LoginRegisterState {}
 
@@ -39,4 +39,30 @@ final class LoginRegisterRegisterPageErrorMessageActionState
     this.conformPasswordErrorMassage,
     this.authorityErrorMassage,
   });
+}
+
+final class LoginRegisterRegisterPageSuccessNavigationActionState
+    extends LoginRegisterActionState {}
+
+final class LoginRegisterLoginPageErrorMessageActionState
+    extends LoginRegisterActionState {
+  String? emailErrorMassage;
+  String? passwordErrorMassage;
+
+  LoginRegisterLoginPageErrorMessageActionState({
+    this.emailErrorMassage,
+    this.passwordErrorMassage,
+  });
+}
+
+final class LoginRegisterLoginPageSuccessNavigationActionState
+    extends LoginRegisterActionState {}
+
+final class LoginRegisterLoginMessageActionState
+    extends LoginRegisterActionState {
+  final String email;
+  final String password;
+
+  LoginRegisterLoginMessageActionState(
+      {required this.email, required this.password});
 }

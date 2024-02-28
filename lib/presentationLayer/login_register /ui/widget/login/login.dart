@@ -1,11 +1,13 @@
 import 'package:employee_management_first_task/presentationLayer/login_register%20/bloc/login_register_bloc.dart';
 import 'package:employee_management_first_task/presentationLayer/login_register%20/ui/widget/login/login_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Login extends StatelessWidget {
   final LoginRegisterBloc loginRegisterBloc;
-  const Login({super.key, required this.loginRegisterBloc});
-
+  Login({super.key, required this.loginRegisterBloc});
+  String email = '';
+  String password = '';
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -60,19 +62,44 @@ class Login extends StatelessWidget {
               color: Colors.white,
               borderRadius: BorderRadius.circular(100),
             ),
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(colors: [Colors.amber, Colors.orange]),
-                borderRadius: BorderRadius.circular(100),
-              ),
-              child: const Icon(
-                Icons.arrow_forward,
-                color: Colors.white,
-                size: 50,
+            child: BlocListener<LoginRegisterBloc, LoginRegisterState>(
+              bloc: loginRegisterBloc,
+              listenWhen: (previous, current) =>
+                  current is LoginRegisterActionState,
+              listener: (context, state) {
+                switch (state.runtimeType) {
+                  case LoginRegisterLoginMessageActionState:
+                    LoginRegisterLoginMessageActionState
+                        loginRegisterLoginActionState =
+                        state as LoginRegisterLoginMessageActionState;
+                    email = loginRegisterLoginActionState.email;
+                    password = loginRegisterLoginActionState.password;
+                    break;
+                  default:
+                }
+              },
+              child: GestureDetector(
+                onTap: () {
+                  print('login button clicked');
+                  loginRegisterBloc.add(LoginRegisterLoginSubmitEvent(
+                      email: email, password: password));
+                },
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: const LinearGradient(
+                        colors: [Colors.amber, Colors.orange]),
+                    borderRadius: BorderRadius.circular(100),
+                  ),
+                  child: const Icon(
+                    Icons.arrow_forward,
+                    color: Colors.white,
+                    size: 50,
+                  ),
+                ),
               ),
             ),
           ),
-        )
+        ),
       ],
     );
   }

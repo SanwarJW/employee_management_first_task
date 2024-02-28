@@ -14,13 +14,13 @@ class RegisterService {
 
 //create a method for chick user is exist or not if exist return user already exist else save user
 
-  Future<RegisterModel?> checkUser(String email) async {
+  Future<bool> checkUserExist(String email) async {
     var result =
         await _repository.readDataByColumnName('register', 'email', email);
     if (result.isNotEmpty) {
-      return RegisterModel.fromMap(result.first);
+      return true;
     } else {
-      return null;
+      return false;
     }
   }
 }

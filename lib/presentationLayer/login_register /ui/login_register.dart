@@ -35,7 +35,7 @@ class LoginRegister extends StatelessWidget {
                     loginRegisterBloc: loginRegisterBloc,
                   );
                 default:
-                  return const Text('Error');
+                  return Center(child: const Text('Error'));
               }
             }),
         Positioned(
