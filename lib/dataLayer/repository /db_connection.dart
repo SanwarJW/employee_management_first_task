@@ -35,5 +35,9 @@ class DbConnection {
     String loginTableSql =
         'CREATE TABLE register (id INTEGER PRIMARY KEY,name TEXT, email TEXT, password TEXT,authority TEXT)';
     await database.execute(loginTableSql);
+
+    String appointmentsTableSql =
+        'CREATE TABLE Appointments (id INTEGER PRIMARY KEY,startTimeZone TEXT, endTimeZone TEXT, recurrenceRule TEXT,isAllDay INTEGER,notes TEXT,location TEXT,startTime DATE,endTime DATE,subject TEXT,color TEXT,recurrenceExceptionDates TEXT)';
+    await database.execute(appointmentsTableSql);
   }
 }

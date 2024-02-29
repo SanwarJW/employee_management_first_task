@@ -1,4 +1,4 @@
-import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/menu_page.dart';
+import 'package:employee_management_first_task/trash/trashTest/appointments_test/appointments_test.dart';
 import 'package:flutter/material.dart';
 
 Future<void> main() async {
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: MenuPage(),
+      home: AppointmentsTest(),
     );
   }
 }
