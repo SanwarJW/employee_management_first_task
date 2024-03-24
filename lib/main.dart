@@ -1,5 +1,8 @@
-import 'package:employee_management_first_task/trash/trashTest/appointments_test/appointments_test.dart';
+import 'package:employee_management_first_task/presentationLayer/menu_home_settings/ui/menu_page.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'presentationLayer/menu_home_settings/ui/widgets.dart/menu/menu_items/calendar/bloc/calendar_bloc.dart';
 
 Future<void> main() async {
   runApp(const MyApp());
@@ -17,7 +20,14 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: AppointmentsTest(),
+      home: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => CalendarBloc(),
+          ),
+        ],
+        child: const MenuPage(),
+      ),
     );
   }
 }

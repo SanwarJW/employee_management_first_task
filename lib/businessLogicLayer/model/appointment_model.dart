@@ -11,8 +11,8 @@ class AppointmentData {
   int? isAllDay;
   String? notes;
   String? location;
-  DateTime? startTime;
-  DateTime? endTime;
+  DateTime startTime;
+  DateTime endTime;
   String? subject;
   Color? color;
   AppointmentData({
@@ -23,8 +23,8 @@ class AppointmentData {
     this.isAllDay,
     this.notes,
     this.location,
-    this.startTime,
-    this.endTime,
+    required this.startTime,
+    required this.endTime,
     this.subject,
     this.color,
   });
@@ -38,8 +38,8 @@ class AppointmentData {
       'isAllDay': isAllDay,
       'notes': notes,
       'location': location,
-      'startTime': startTime?.toIso8601String(),
-      'endTime': endTime?.toIso8601String(),
+      'startTime': startTime.toIso8601String(),
+      'endTime': endTime.toIso8601String(),
       'subject': subject,
       'color': color?.value,
     };
@@ -58,12 +58,8 @@ class AppointmentData {
       isAllDay: map['isAllDay'] != null ? map['isAllDay'] as int : null,
       notes: map['notes'] != null ? map['notes'] as String : null,
       location: map['location'] != null ? map['location'] as String : null,
-      startTime: map['startTime'] != null
-          ? DateTime.parse(map['startTime'] as String)
-          : null,
-      endTime: map['endTime'] != null
-          ? DateTime.parse(map['endTime'] as String)
-          : null,
+      startTime: DateTime.parse(map['startTime'] as String),
+      endTime: DateTime.parse(map['endTime'] as String),
       subject: map['subject'] != null ? map['subject'] as String : null,
       color: map['color'] != null ? Color(map['color'] as int) : null,
     );

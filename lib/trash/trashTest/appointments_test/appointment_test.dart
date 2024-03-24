@@ -2,17 +2,17 @@ import 'package:employee_management_first_task/businessLogicLayer/model/appointm
 import 'package:employee_management_first_task/businessLogicLayer/services/appointments_services.dart';
 import 'package:flutter/material.dart';
 
-class AppointmentsTest extends StatelessWidget {
-  AppointmentsTest({super.key});
-  AppointmentsServices appointmentsServices = AppointmentsServices();
+class AppointmentTest extends StatelessWidget {
+  AppointmentTest({super.key});
+  final AppointmentsServices appointmentsServices = AppointmentsServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
         child: ElevatedButton(
             onPressed: () {
-              // addAppointments();
-              allAppointments();
+              addAppointments();
+              // allAppointments();
             },
             child: const Text('Test')),
       ),
